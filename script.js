@@ -42,9 +42,9 @@ const renderCalendar = () => {
     "December",
   ];
 
-  document.querySelector(".date h1").innerHTML = months[date.getMonth()];
+  // document.querySelector(".date h1").innerHTML = months[date.getMonth()];
 
-  document.querySelector(".date p").innerHTML = new Date().toDateString();
+  document.querySelector(".date p").innerHTML = months[date.getMonth()] + " " + date.getFullYear();
 
   let days = "";
 
@@ -76,6 +76,11 @@ document.querySelector(".prev").addEventListener("click", () => {
 
 document.querySelector(".next").addEventListener("click", () => {
   date.setMonth(date.getMonth() + 1);
+  renderCalendar();
+});
+
+document.querySelector(".today-button").addEventListener("click", () => {
+  date.setMonth(new Date().getMonth());
   renderCalendar();
 });
 
