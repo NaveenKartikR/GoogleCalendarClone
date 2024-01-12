@@ -1,4 +1,5 @@
-const date = new Date();
+let date = new Date();
+let miniDate = new Date();
 const months = [
   "January",
   "February",
@@ -15,26 +16,26 @@ const months = [
 ];
 const daysOfWeek = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 
-const getDates = () => {
-  date.setDate(1);
+const getDates = (dateInput) => {
+  dateInput.setDate(1);
 
   const lastDay = new Date(
-    date.getFullYear(),
-    date.getMonth() + 1,
+    dateInput.getFullYear(),
+    dateInput.getMonth() + 1,
     0
   ).getDate();
 
   const prevLastDay = new Date(
-    date.getFullYear(),
-    date.getMonth(),
+    dateInput.getFullYear(),
+    dateInput.getMonth(),
     0
   ).getDate();
 
-  const firstDayIndex = date.getDay();
+  const firstDayIndex = dateInput.getDay();
 
   const lastDayIndex = new Date(
-    date.getFullYear(),
-    date.getMonth() + 1,
+    dateInput.getFullYear(),
+    dateInput.getMonth() + 1,
     0
   ).getDay();
 
@@ -49,8 +50,8 @@ const getDates = () => {
   for (let i = 1; i <= lastDay; i++) {
     if (
       i === new Date().getDate() &&
-      date.getMonth() === new Date().getMonth() &&
-      date.getFullYear() === new Date().getFullYear()
+      dateInput.getMonth() === new Date().getMonth() &&
+      dateInput.getFullYear() === new Date().getFullYear()
     ) {
       days.push(`<div class="today">${i}</div>`);
     } else {
@@ -62,16 +63,21 @@ const getDates = () => {
     days.push(`<div class="next-date">${j}</div>`);
   }
 
-  return days;
+  let extraDays = [];
+  if (days !== 6) {
+    for (let j = nextDay+1; j <= nextDay+7; j++) {
+      extraDays.push(`<div class="next-date">${j}</div>`);
+    }
+  }
+  return [days, extraDays];
 };
 
 const renderCalendar = () => {
   const monthDays = document.querySelector(".calendar");
-  document.querySelector(".date p").innerHTML = document.querySelector(".curr-date").innerHTML = months[date.getMonth()] + " " + date.getFullYear();
-  
-  document.querySelector(".calendar").style.gridTemplateRows = `repeat(${monthDays%7}, 1fr)`;
+  document.querySelector(".date p").innerHTML = months[date.getMonth()] + " " + date.getFullYear();
 
-  const days = getDates();
+  let [days, extraDays] = getDates(date);
+  document.querySelector(".calendar").style.gridTemplateRows = `repeat(${days.length/7}, 1fr)`;
   let daysElement = "";
 
   for (let i = 0; i < 7; i++) {
@@ -83,10 +89,33 @@ const renderCalendar = () => {
   }
 
   monthDays.innerHTML = daysElement;
+  miniDate.setFullYear(date.getFullYear(), date.getMonth(), date.getDate());
+  renderMiniCalendar();
+
 }
 
 const renderMiniCalendar = () => {
-  
+  const monthDays = document.querySelector(".mini-calendar");
+  document.querySelector(".curr-date").innerHTML = months[miniDate.getMonth()] + " " + miniDate.getFullYear();
+
+  let [days, extraDays] = getDates(miniDate);
+  if (days.length/7 !== 6) {
+    days = days.concat(extraDays);
+  };
+
+  let daysElement =  `
+      <div class="weekdays">S</div>
+      <div class="weekdays">M</div>
+      <div class="weekdays">T</div>
+      <div class="weekdays">W</div>
+      <div class="weekdays">T</div>
+      <div class="weekdays">F</div>
+      <div class="weekdays">S</div>
+  `;
+  for (let i = 0; i < days.length; i++) {
+    daysElement += days[i];
+  }
+  monthDays.innerHTML = daysElement;
 }
 
 document.querySelector(".prev").addEventListener("click", () => {
@@ -97,6 +126,16 @@ document.querySelector(".prev").addEventListener("click", () => {
 document.querySelector(".next").addEventListener("click", () => {
   date.setMonth(date.getMonth() + 1);
   renderCalendar();
+});
+
+document.querySelector(".mini-left").addEventListener("click", () => {
+  miniDate.setMonth(miniDate.getMonth() - 1);
+  renderMiniCalendar();
+});
+
+document.querySelector(".mini-right").addEventListener("click", () => {
+  miniDate.setMonth(miniDate.getMonth() + 1);
+  renderMiniCalendar();
 });
 
 document.querySelector(".today-button").addEventListener("click", () => {

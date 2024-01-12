@@ -220,21 +220,38 @@ html {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(7, 1fr);
-  height: 40vh;
+  height: 30vh;
   width: 20vw;
 }
 
 .mini-header {
-  grid-area: 1 / 1 / 2 / 8;
-}
-
-.mini-header {
   font-size: 13px;
+  width: 20vw;
+  height: 5vh;
+  margin-top: 10px;
   display: grid;
   grid-template-columns: 2fr 1fr;
   justify-items: center;
   align-items: center;
   margin-bottom: 3px;
+}
+
+.mini-header > .curr-date {
+  margin-left: 20px;
+  justify-self: left;
+
+}
+
+.mini-header > .mini-chevrons > *{
+  width: 15px;
+  height: 15px;
+  padding: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.mini-header > .mini-chevrons > *:hover {
+  background-color: #ededed;
 }
 
 .date-box div,
@@ -247,8 +264,8 @@ html {
   border-radius: 50%;
 }
 
-.date-box div:hover:not(.today),
-.mini-calendar div:hover:not(.today) {
+.date-box .prev-date:hover, .date:hover, .next-date:hover,
+.mini-calendar .prev-date:hover, .date:hover, .next-date:hover {
   background-color: #ededed;
   border: none;
   cursor: pointer;
