@@ -67,7 +67,7 @@ const getDates = () => {
 
 const renderCalendar = () => {
   const monthDays = document.querySelector(".calendar");
-  document.querySelector(".date p").innerHTML = months[date.getMonth()] + " " + date.getFullYear();
+  document.querySelector(".date p").innerHTML = document.querySelector(".curr-date").innerHTML = months[date.getMonth()] + " " + date.getFullYear();
   
   document.querySelector(".calendar").style.gridTemplateRows = `repeat(${monthDays%7}, 1fr)`;
 

@@ -219,13 +219,26 @@ html {
   margin-top: 10px;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: 7fr repeat(7, 1fr);
+  grid-template-rows: repeat(7, 1fr);
   height: 40vh;
   width: 20vw;
 }
 
+.mini-header {
+  grid-area: 1 / 1 / 2 / 8;
+}
+
+.mini-header {
+  font-size: 13px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  justify-items: center;
+  align-items: center;
+  margin-bottom: 3px;
+}
+
 .date-box div,
-.mini-calendar div:not(.mini-header) {
+.mini-calendar > div:not(.mini-header) {
   width: 25px;
   height: 25px;
   text-align: center;
