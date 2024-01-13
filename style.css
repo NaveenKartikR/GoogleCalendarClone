@@ -112,6 +112,25 @@ html {
   background-color: rgb(180, 206, 236);
 }
 
+.profile-pic {
+  justify-self: center;
+  align-self: center;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.profile-pic:hover {
+  width: 50px;
+  height: 50px;
+}
+
+.profile-pic > img:hover {
+  width: 50px;
+  height: 50px;
+}
+
 .container {
   width: 100%;
   height: 90vh;
@@ -123,7 +142,7 @@ html {
 }
 
 .sidebar {
-  width: 20vw;
+  width: 18vw;
   height: 90vh;
 }
 
@@ -141,7 +160,7 @@ html {
   cursor: pointer;
   display: flex;
   height: 48px;
-  margin-top: 10px;
+  margin-top: 20px;
   padding: 0 4px;
   width: 147.88px;
   border: solid;
@@ -175,7 +194,7 @@ html {
   --gap: 5px;
   --line-offset: calc(var(--gap) / 2);
 
-  width: 80vw;
+  width: 82vw;
   height: 90vh;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -216,19 +235,23 @@ html {
 }
 
 .mini-calendar {
-  margin-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-weight: 600;
+  margin: 10px auto 10px auto;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(7, 1fr);
-  height: 30vh;
-  width: 20vw;
+  height: 35vh;
+  width: 16vw;
 }
 
 .mini-header {
   font-size: 13px;
-  width: 20vw;
+  font-weight: 700;
+  width: 16vw;
   height: 5vh;
-  margin-top: 10px;
+  margin: 20px auto 10px auto;
   display: grid;
   grid-template-columns: 2fr 1fr;
   justify-items: center;
@@ -245,7 +268,7 @@ html {
 .mini-header > .mini-chevrons > *{
   width: 15px;
   height: 15px;
-  padding: 5px;
+  padding: 10px;
   border-radius: 50%;
   cursor: pointer;
 }
@@ -286,4 +309,150 @@ html {
   background-color: rgb(6,95,212);
   border: none;
   cursor: pointer;
+}
+
+.search-people {
+  width: 15vw;
+  height: 40px;
+  margin: 10px auto 10px auto;
+  font-size: 15px;
+  font-weight: 500;
+  color:#909090;
+  background-color: #ededed;
+  padding-left: 13px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.search-people > i {
+  margin-right: 6px;
+}
+
+.my-calendars {
+  font-size: 13px;
+  font-weight: 700;
+  width: 15vw;
+  margin: 10px auto 10px auto;
+}
+
+.my-cal-title {
+  margin-left: 6px;
+}
+
+#togC { display: none; }
+
+#togL {
+  display: block;
+  height: 45px;
+  padding: 12px 0;
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+}
+
+#togL > i {
+  justify-self: center;
+  align-self: center;
+}
+
+#togL:hover { background: #ededed; }
+
+#content { display: none; }
+
+#togC:checked + #content { display: block; }
+
+.content-item {
+  font-size: 15px;
+  font-weight: 500;
+  height: 45px;
+  padding: 12px 0;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
+
+.content-item:hover {
+  background-color: #ededed;
+}
+
+/* Customize the label (the container) */
+.check-container {
+  display: block;
+  position: relative;
+  /* align-self: center;
+  justify-self: center; */
+  padding-left: 35px;
+  margin: auto 5px 40px 5px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.check-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: white;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.check-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.check-container .checkmark:after {
+  left: 7px;
+  top: 3px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.first {
+  border: solid #039BE5;
+}
+/* When the checkbox is checked, add a blue background */
+.check-container input:checked ~ .checkmark.first {
+  background-color: #039BE5;
+}
+
+.second {
+  border: solid #33B679;
+}
+/* When the checkbox is checked, add a blue background */
+.check-container input:checked ~ .checkmark.second {
+  background-color: #33B679;
+}
+
+.third {
+  border: solid #0047a8;
+}
+/* When the checkbox is checked, add a blue background */
+.check-container input:checked ~ .checkmark.third {
+  background-color: #0047a8;
 }

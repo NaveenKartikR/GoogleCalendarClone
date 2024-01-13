@@ -144,4 +144,17 @@ document.querySelector(".today-button").addEventListener("click", () => {
   renderCalendar();
 });
 
+document.getElementById("togC").addEventListener("click", () => {
+  const checkBox = document.getElementById("togC");
+  const arrow = document.querySelector(".collapsible-arrow");
+  if (checkBox.checked) {
+    arrow.classList.remove("fa-chevron-down");
+    arrow.classList.add("fa-chevron-up");
+  }
+  else {
+    arrow.classList.remove("fa-chevron-up");
+    arrow.classList.add("fa-chevron-down");
+  }
+});
+
 renderCalendar();

@@ -22,14 +22,14 @@
   <body>
     <div class="header">
       <div class="title-icons">
-        <i class="fa-solid fa-bars fa-2xs"></i>
+        <i class="fa-solid fa-bars"></i>
         <img src="https://res.cloudinary.com/imagist/image/fetch/q_auto/f_auto/c_scale,w_2624/https%3A%2F%2Fimages.ctfassets.net%2Fdm4oa8qtogq0%2F6PEjxy5GpAUIywXyMFKueG%2F0e9a4a275e6be1c62b65f18ee0d68985%2FCalendar.png" height="40" width="40"/>
         <p>Calendar</p>
       </div>
       <button class="today-button">Today</button>
       <div class="chevrons">
-        <i class="fas fa-angle-left prev"></i>
-        <i class="fas fa-angle-right next"></i>
+        <i class="fa-solid fa-chevron-left fa-xs prev"></i>
+        <i class="fa-solid fa-chevron-right fa-xs next"></i>
       </div>
       <div class="date">
         <p></p>
@@ -57,6 +57,9 @@
           <path d="M6,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM16,6c0,1.1 0.9,2 2,2s2,-0.9 2,-2 -0.9,-2 -2,-2 -2,0.9 -2,2zM12,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2z"></path>
           <image src="https://ssl.gstatic.com/gb/images/bar/al-icon.png" alt="" height="24" width="24" style="border:none;display:none \9"></image>
         </svg>
+        <div class="profile-pic">
+          <img width="40" height="40" src="https://assets.codepen.io/4013560/internal/avatars/users/default.png?fit=crop&format=auto&height=512&version=1580487532&width=512"/>
+        </div>
       </div>
     </div>
     <div class="container">
@@ -77,6 +80,40 @@
           </div>
         </div>
         <div class="mini-calendar"></div>
+        <div class="search-people">
+          <i class="fa-regular fa-user fa-2sm"></i>
+          Search for people
+        </div>
+        <div class="my-calendars">
+          <label id="togL" for="togC">
+            <div class="my-cal-title">My calendars</div>
+            <i class="fa-solid fa-chevron-down fa-sm collapsible-arrow"></i>
+          </label>
+          <input id="togC" type="checkbox">
+          <div id="content">
+            <div class="content-item">
+              <label class="check-container">
+                <input type="checkbox" checked="checked">
+                <span class="checkmark first"></span>
+              </label>
+              Contacts
+            </div>
+            <div class="content-item">
+              <label class="check-container">
+                <input type="checkbox" checked="checked">
+                <span class="checkmark second"></span>
+              </label>
+              Tasks
+            </div>
+            <div class="content-item">
+              <label class="check-container">
+                <input type="checkbox" checked="checked">
+                <span class="checkmark third"></span>
+              </label>
+              Holidays
+            </div>
+          </div>
+        </div>
       </div>
       <div class="calendar"></div>
     </div>
