@@ -92,7 +92,7 @@ html {
 
 .header > .side-icons {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 2.3fr 3.3fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 2.3fr 3.3fr 1fr 1.1fr;
   grid-template-rows: 10vh;
   align-items: center;
   justify-items: center;
@@ -122,6 +122,8 @@ html {
 }
 
 .profile-pic:hover {
+  border: solid #a0a0a0;
+  justify-self: left;
   width: 50px;
   height: 50px;
 }
@@ -129,6 +131,9 @@ html {
 .profile-pic > img:hover {
   width: 50px;
   height: 50px;
+  position: relative;
+  left: -3px;
+  top: -2px;
 }
 
 .container {
