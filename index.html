@@ -64,7 +64,7 @@
     </div>
     <div class="container">
       <div class="sidebar">
-        <button class="create-button">
+        <button class="create-button" onclick="openTaskWindow('today-date')">
           <svg width="40" height="36" viewBox="0 0 36 36">
             <path fill="#34A853" d="M16 16v14h4V20z"></path>
             <path fill="#4285F4" d="M30 16H20l-4 4h14z"></path><path fill="#FBBC05" d="M6 16v4h10l4-4z"></path><path fill="#EA4335" d="M20 16V6h-4v14z"></path><path fill="none" d="M0 0h36v36H0z"></path>
@@ -116,6 +116,34 @@
         </div>
       </div>
       <div class="calendar"></div>
+      <div class="task-window" style="display: none;">
+        <div class="task-window-header">
+          <div class="task-window-close-button">
+            <i class="fa-solid fa-xmark fa-2xl" style="color: #616161;"></i>
+          </div>
+        </div>
+        <input class="title-text" type="text" placeholder="Add title">
+        <div class="event-task-buttons">
+          <div class="event-button">Event</div>
+          <div class="task-button">Task</div>
+        </div>
+        <div class="date-display-section">
+          <i class="fa-regular fa-clock fa-2xl" style="color: #616161;"></i>
+          <div class="date-display">Jan 2, 2024</div>
+          <div class="add-time-button">Add time</div>
+        </div>
+        <div class="description-section">
+          <i class="fa-solid fa-bars-staggered fa-2xl" style="color: #616161;"></i>
+          <input class="description-text" type="text" placeholder="Add description">
+        </div>
+        <div class="task-section">
+          <i class="fa-solid fa-list fa-2xl" style="color: #616161;"></i>
+          My Tasks
+        </div>
+        <div class="add-task-div">
+          <button class="add-task">SAVE</button>
+        </div>
+      </div>
     </div>
     <script src="script.js"></script>
   </body>
